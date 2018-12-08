@@ -1,0 +1,15 @@
+<div style="margin-left:15%">
+
+  <section>
+    <article class="produto" *ngFor="let produto of produtos">
+      <header><h3>{{produto.nome}}</h3></header>
+      <p><h5>Descrição: {{produto.descricao}}</h5>
+      <p><h5>Preço: {{produto.preco}}</h5>
+      <a routerLink='/editar-produto'><button (click)="escolherProduto(produto);transferProdUser()">Editar Produto</button></a>
+      <a><button (click)="eliminarProduto(produto)">Remover Produto</button></a>
+    </article>
+  </section>
+  <a routerLink='/criar-produto'><button>Criar Produto</button></a>
+</div>
+
+<router-outlet></router-outlet>

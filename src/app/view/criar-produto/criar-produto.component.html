@@ -1,0 +1,33 @@
+<p>Novo nome: <input name="nNome" type="text"
+  [(ngModel)]="novoNome" [(value)]="novoNome" (ngModelChange)="setNome(novoNome)"
+  required></p>
+<p>Nova Descricao: <input name="nDescricao" type="text"
+  [(ngModel)]="novaDescricao" [(value)]="novaDescricao" (ngModelChange)="setDescricao(novaDescricao)"
+  required></p>
+<p>Novo Preço: <input name="nPreco" type="number"
+  [(ngModel)]="novoPreco" [(value)]="novoPreco" (ngModelChange)="setPreco(novoPreco)"
+  required></p>
+<p>Novo Comprimento Minimo: <input name="nCompMin" type="number"
+  [(ngModel)]="novoCompMin" [(value)]="novoCompMin" (ngModelChange)="setCompMin(novoCompMin)"
+  required></p>
+<p>Novo Comprimento Maximo: <input name="nCompMax" type="number"
+  [(ngModel)]="novoCompMax" [(value)]="novoCompMax" (ngModelChange)="setCompMax(novoCompMax)"
+  required></p>
+<p>Nova Largura Minima: <input name="nLargMin" type="number"
+  [(ngModel)]="novaLargMin" [(value)]="novaLargMin" (ngModelChange)="setLargMin(novaLargMin)"
+  required></p>
+<p>Nova Largura Maxima: <input name="nLargMax" type="number"
+  [(ngModel)]="novaLargMax" [(value)]="novaLargMax" (ngModelChange)="setLargMax(novaLargMax)"
+  required></p>
+<p>Nova Altura Minima: <input name="nAltMin" type="number"
+  [(ngModel)]="novaAltMin" [(value)]="novaAltMin" (ngModelChange)="setAltMin(novaAltMin)"
+  required></p>
+<p>Nova Altura Maxima: <input name="nAltMax" type="number"
+  [(ngModel)]="novaAltMax" [(value)]="novaAltMax" (ngModelChange)="setAltMax(novaAltMax)"
+  required></p>
+<a><button (click)="addComprimento(comprimento,largura,altura)">Criar Produto</button></a>
+<section>
+  <article class="material" *ngFor="let material of materiais">
+    <p>{{material.nome}}<a><button (click)="postProdutoMaterial(material.id)">Adicionar Material</button></a></p>
+  </article>
+</section>

@@ -1,0 +1,86 @@
+<div style="text-align: center">
+  <h1>Criação de Encomenda</h1>
+</div>
+
+<div style="margin-left:10%;margin-top:5%;float:left">
+
+  <form>
+    <h2>Escolha um utilizador:</h2>
+    <section>
+      <article class="utilizador" *ngFor="let utilizador of utilizadores">
+        <header><h3>{{utilizador.nome}}</h3></header>
+        <button (click)="selecionaUtilizador(utilizador, $event)">Escolher</button>
+      </article>
+    </section>
+
+    <h2>Escolha um Produto:</h2>
+    <section>
+      <article class="encomenda" *ngFor="let produto of produtos">
+        <header><h3>{{produto.nome}}</h3></header>
+        <button (click)="selecionaProduto(produto, $event)">Escolher</button>
+      </article>
+    </section>
+    <br>
+    <a routerLink='/criar-item-produto'><button (click)="transferProdUser()">Confirmar</button></a>
+  </form>
+
+</div>
+
+<div style="margin-right:10%;margin-top:5%;float:right" >
+
+  <div *ngIf="userSelec">
+    <h1>Utilizador Selecionado:</h1>
+    <p>Nome: {{userSelec.nome}}</p>
+    <p>Email: {{userSelec.email}}</p> 
+  </div>
+
+  <div *ngIf="prodSelec">
+  <h1>Produto Selecionado:</h1>
+  <p>Nome: {{prodSelec.nome}}</p>
+  <p>Descrição: {{prodSelec.descricao}}</p>
+  <p>Preço: {{prodSelec.preco}}</p>
+
+  <div *ngIf="prodSelec.dimensao.comprimento.min==-1">
+    <p>Comprimento: {{prodSelec.dimensao.comprimento.max}}</p>
+  </div>
+  <div *ngIf="prodSelec.dimensao.comprimento.min>-1">
+    <p>Comprimento Máximo: {{prodSelec.dimensao.comprimento.max}}</p>
+    <p>Comprimento Mínimo: {{prodSelec.dimensao.comprimento.min}}</p>
+</div>
+
+  <div *ngIf="prodSelec.dimensao.largura.min==-1">
+    <p>Largura: {{prodSelec.dimensao.largura.max}}</p>
+  </div>
+  <div *ngIf="prodSelec.dimensao.largura.min>-1">
+    <p>Largura Máximo: {{prodSelec.dimensao.largura.max}}</p>
+    <p>Largura Mínimo: {{prodSelec.dimensao.largura.min}}</p>
+  </div>
+
+  <div *ngIf="prodSelec.dimensao.altura.min==-1">
+    <p>Altura: {{prodSelec.dimensao.altura.max}}</p>
+  </div>
+  <div *ngIf="prodSelec.dimensao.altura.min>-1">
+    <p>Altura Máximo: {{prodSelec.dimensao.altura.max}}</p>
+    <p>Altura Mínimo: {{prodSelec.dimensao.altura.min}}</p>
+  </div>
+
+  <div *ngIf="prodSelec.minPercentagem==0">
+    <p>Percentagem de ocupação máxima: {{prodSelec.maxPercentagem}}</p>
+  </div>
+  <div *ngIf="prodSelec.minPercentagem>0">
+    Percentagem de ocupação minima: {{prodSelec.minPercentagem}}
+    Percentagem de ocupação máxima: {{prodSelec.maxPercentagem}}
+  </div>
+  <h3>Materiais</h3>
+  <div *ngFor="let material of matSelect; let nMat = index">
+    <p>Material {{nMat + 1}}</p>
+    <p>Nome: {{material.nome}}</p>
+    <div *ngFor="let acabamento of material.acabamentos; let nAca = index">
+      <p>Acabamento {{nAca + 1}}</p>
+      <p>Nome: {{acabamento.nome}}</p>
+    </div>
+  </div>
+
+</div>
+  
+</div>

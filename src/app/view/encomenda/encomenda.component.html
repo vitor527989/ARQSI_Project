@@ -1,0 +1,14 @@
+<div style="margin-left:15%">
+
+  <section>
+    <article class="encomenda" *ngFor="let encomenda of encomendas; let nEnc = index">
+      <header><h3>Encomenda {{nEnc + 1}}</h3></header>
+      <p><h5>Data: {{encomenda.encomenda_data | date:"MM/dd/yyyy 'às' HH:mm:ss"}}</h5>
+      <p><h5>Encomenda feita por: {{encomenda.encomenda_user[0].utilizador_nome}}</h5>
+      <!--<a routerLink='/editar-encomenda'><button (click)="escolherEncomenda(encomenda)">Escolher Encomenda</button></a>-->
+    </article>
+  </section>
+  
+</div>
+
+<router-outlet></router-outlet>

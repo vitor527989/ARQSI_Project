@@ -1,0 +1,28 @@
+<div style="text-align: center">
+  <h1>Itens de Produto</h1>
+</div>
+
+<div style="margin-left:15%">
+
+  <section>
+    <article class="listItemProd" *ngFor="let itemProd of itensProduto">
+      <header><h3>{{itemProd.nome}}</h3></header>
+      <p>Descrição: {{itemProd.desc}}</p>
+      <p>Preço: {{itemProd.preco}}</p>
+      <p>Categoria: {{itemProd.categoria}}</p>
+      <p>Categoria Pai: {{itemProd.categoria_pai}}</p>
+      <p>Comprimento: {{itemProd.comp}}</p>
+      <p>Largura: {{itemProd.larg}}</p>
+      <p>Altura: {{itemProd.alt}}</p>
+      <div *ngFor="let material of materiais; let nMat = index">
+        <p>Material {{nMat + 1}}: {{material.material_nome}}</p>
+        <div *ngFor="let acabamento of material.material_acabamentos; let nAca = index">
+          <p>Acabamento {{nAca + 1}}: {{acabamento}}</p>
+        </div>
+      </div>
+    </article>
+  </section>
+  
+</div>
+
+<router-outlet></router-outlet>

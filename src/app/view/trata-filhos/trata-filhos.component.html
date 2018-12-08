@@ -1,0 +1,43 @@
+<div style="text-align: center">
+  <h1>Tratamento de Produtos Filhos</h1>
+</div>
+
+<div *ngIf="filhos.length>0" style="margin-left:10%;margin-top:5%;float:left">
+  <div *ngFor="let filho of filhos">
+    <p>Nome: {{filho.nome}}</p>
+    <p>Descrição: {{filho.descricao}}</p>
+    <p>Preço: {{filho.preco}}</p>
+    <p>Categoria: {{filho.categoria}}</p>
+    <div *ngIf="filho.dimensao.comprimento.min>-1">
+      <p>Comprimento [{{filho.dimensao.comprimento.min}} - {{filho.dimensao.comprimento.max}}]: <input name="comp" type="number" 
+      [(ngModel)]="comprimento" [(value)]="comprimento" (ngModelChange)="setComp(comprimento)"required></p>
+    </div>
+  
+    <div *ngIf="filho.dimensao.largura.min>-1">
+      <p>Largura [{{filho.dimensao.largura.min}} - {{filho.dimensao.largura.max}}]: <input name="larg" type="number" 
+      [(ngModel)]="largura" [(value)]="largura" (ngModelChange)="setLarg(largura)"required></p>
+    </div>
+  
+    <div *ngIf="filho.dimensao.altura.min>-1">
+      <p>Altura [{{filho.dimensao.altura.min}} - {{filho.dimensao.altura.max}}]: <input name="alt" type="number" 
+      [(ngModel)]="altura" [(value)]="altura" (ngModelChange)="setAlt(altura)" required></p>
+    </div>
+    <br>
+    <div *ngIf="filho.dimensao.comprimento.min>-1 && filho.dimensao.largura.min>-1 && filho.dimensao.altura.min>-1">
+      <button (click)="setDimensoes(comprimento, largura, altura, filho)">Atribuir Dimensões</button>
+    </div>
+    <div *ngIf="filho.dimensao.comprimento.min==-1 && filho.dimensao.largura.min==-1 && filho.dimensao.altura.min==-1">
+      <button (click)="setDimensoes(comprimento, largura, altura, filho)">Confirmar Produto</button>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="filhos.length==0" style="margin-right:10%;margin-top:5%;float:left">
+  <p>O produto Selecionado não tem produtos filhos</p>
+</div>
+
+<div style="margin-left:10%;margin-top:30%;float:left">
+  <a routerLink="/encomenda"><button (click)="postEncomenda()">Terminar</button></a>
+</div>
+
+<router-outlet></router-outlet>

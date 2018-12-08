@@ -1,0 +1,55 @@
+<p>Nome: {{produto.nome}}</p>
+<p>Novo nome: <input name="nNome" type="text"
+  [(ngModel)]="novoNome" [(value)]="novoNome" (ngModelChange)="setNome(novoNome)"
+  required></p>
+
+<p>Descricao: {{produto.descricao}}</p>
+<p>Nova Descricao: <input name="nDescricao" type="text"
+  [(ngModel)]="novaDescricao" [(value)]="novaDescricao" (ngModelChange)="setDescricao(novaDescricao)"
+  required></p>
+
+<p>Comprimento Minimo: {{produto.dimensao.comprimento.min}}</p>
+<p>Novo Comprimento Minimo: <input name="nCompMin" type="number"
+  [(ngModel)]="novoCompMin" [(value)]="novoCompMin" (ngModelChange)="setCompMin(novoCompMin)"
+  required></p>
+
+<p>Comprimento Máximo: {{produto.dimensao.comprimento.max}}</p>
+<p>Novo Comprimento Maximo: <input name="nCompMax" type="number"
+  [(ngModel)]="novoCompMax" [(value)]="novoCompMax" (ngModelChange)="setCompMax(novoCompMax)"
+  required></p>
+
+<p>Largura Minima: {{produto.dimensao.largura.min}}</p>
+<p>Nova Largura Minima: <input name="nLargMin" type="number"
+  [(ngModel)]="novaLargMin" [(value)]="novaLargMin" (ngModelChange)="setLargMin(novaLargMin)"
+  required></p>
+
+<p>Largura Máxima: {{produto.dimensao.largura.max}}</p>
+<p>Nova Largura Maxima: <input name="nLargMax" type="number"
+  [(ngModel)]="novaLargMax" [(value)]="novaLargMax" (ngModelChange)="setLargMax(novaLargMax)"
+  required></p>
+
+<p>Altura Minima: {{produto.dimensao.altura.min}}</p>
+<p>Nova Altura Minima: <input name="nAltMin" type="number"
+  [(ngModel)]="novaAltMin" [(value)]="novaAltMin" (ngModelChange)="setAltMin(novaAltMin)"
+  required></p>
+
+<p>Altura Máxima: {{produto.dimensao.altura.max}}</p>
+<p>Nova Altura Maxima: <input name="nAltMax" type="number"
+  [(ngModel)]="novaAltMax" [(value)]="novaAltMax" (ngModelChange)="setAltMax(novaAltMax)"
+  required></p>
+  
+  <a><button (click)="addComprimento(comprimento,largura,altura)">Fazer Alterações</button></a>
+
+<h3>Eliminar Materiais do Produto:</h3>
+<section>
+  <article class="material" *ngFor="let material of materiaisProd">
+    <p>{{material.nome}} <button (click)="eliminarProdutoMaterial(material.id)">Eliminar Material</button></p>
+  </article>
+</section>
+
+<h3>Adicionar Materiais ao Produto:</h3>
+<section>
+  <article class="material1" *ngFor="let material1 of materiais">
+    <p>{{material1.nome}}<a><button (click)="postProdutoMaterial(material1.id)">Adicionar Material</button></a></p>
+  </article>
+</section>

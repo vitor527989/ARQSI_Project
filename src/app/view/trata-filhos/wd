@@ -1,0 +1,12 @@
+DROP TABLE Acabamentos;
+DROP TABLE Catalogos;
+DROP TABLE CatalogosProdutos;
+DROP TABLE Categorias;
+DROP TABLE Dimensoes;
+DROP TABLE Materiais;
+DROP TABLE MateriaisAcabamentos;
+DROP TABLE Produtos;
+DROP TABLE ProdutosMateriais;
+DROP TABLE ProdutosRestricoes;
+DROP TABLE Restricoes;
+DROP TABLE Utilizadores;

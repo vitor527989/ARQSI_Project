@@ -1,0 +1,34 @@
+.encomenda{
+    border: 1px rgb(131, 63, 14) solid;
+    width: 300px;
+    min-height: 250px;
+    float: left;
+    padding: 5px;
+    margin: 30px;
+}
+
+section{
+    min-width: 500px;
+    margin-left: 200px;
+    overflow: hidden;
+}
+
+.fixfloat{
+    clear: both;
+}
+
+nav{
+    float: left;
+    width: 250px;
+}
+
+div#wrapper{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: grey;
+}
+
+h3 {
+    text-align: center;
+}
